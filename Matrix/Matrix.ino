@@ -84,6 +84,7 @@ void display(bool matrix[8][8], unsigned long delayTime) {
 }
 
 void setup() {
+  randomSeed(analogRead(0));
   Serial.begin(9600);
   for (int pin = 0; pin < 8; pin++) {
     pinMode(col[pin], OUTPUT);
