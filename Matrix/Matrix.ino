@@ -66,8 +66,8 @@ void generateMatrix(int input, bool matrix[8][8]) {
 }
 
 
-void display(bool matrix[8][8], int delayTime) {
-  int end = millis() + delayTime;
+void display(bool matrix[8][8], unsigned long delayTime) {
+  unsigned long end = millis() + delayTime;
   while (end >= millis()) {
     for (int rowPin = 0; rowPin < 8; rowPin++) {
       turnOff();
