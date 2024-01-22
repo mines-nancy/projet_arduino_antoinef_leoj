@@ -1,11 +1,12 @@
 int randNumber;
+int baseNumber = 32;
 
 const int col[8] = {
-  16, 4, 5, 11, 7, 12, 18, 19
+  16, 4, 5, 11, 7, 14, 18, 19
 };
 
 const int row[8] = {
-  10, 17, 9, 13, 2, 8, 3, 6
+  10, 17, 9, 15, 2, 8, 3, 6
 };
 
 const bool matrixPin[8][8] = {
@@ -77,15 +78,29 @@ void display(bool matrix[8][8], unsigned long delayTime) {
           digitalWrite(col[colPin], LOW);
         }
       }
-      delay(2);
+      delay(1);
     }
   }
   turnOff();
 }
 
+void nombreRandom() {
+  randNumber = random(65);
+  bool matrix[8][8];
+  generateMatrix(randNumber, matrix);
+  display(matrix, 1000);
+}
+
+void nombreRandom1() {
+  baseNumber += random(4)-2;
+
+  bool matrix[8][8];
+  generateMatrix(baseNumber, matrix);
+  display(matrix, (5000+random(5001)));
+}
+
 void setup() {
   randomSeed(analogRead(0));
-  Serial.begin(9600);
   for (int pin = 0; pin < 8; pin++) {
     pinMode(col[pin], OUTPUT);
     pinMode(row[pin], OUTPUT);
@@ -101,8 +116,5 @@ void setup() {
 }
 
 void loop() {
-  randNumber = random(65);
-  bool matrix[8][8];
-  generateMatrix(randNumber, matrix);
-  display(matrix, 5000);
+  nombreRandom();
 }
