@@ -94,7 +94,7 @@ void nombreRandom() {
 void nombreRandom1() {
   bool matrix[8][8];
   generateMatrix(baseNumber, matrix);
-  display(matrix, (5000+random(5001)));
+  display(matrix, random(5000,10001));
   baseNumber += random(-1,2);
 }
 
