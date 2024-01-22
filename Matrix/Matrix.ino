@@ -92,7 +92,7 @@ void nombreRandom() {
 }
 
 void nombreRandom1() {
-  baseNumber += random(3)-2;
+  baseNumber += random(-1,2);
 
   bool matrix[8][8];
   generateMatrix(baseNumber, matrix);
