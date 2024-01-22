@@ -116,5 +116,5 @@ void setup() {
 }
 
 void loop() {
-  nombreRandom();
+  nombreRandom1();
 }
